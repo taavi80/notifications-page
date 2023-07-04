@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Notifications page</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        min-height: 100vh;
+        background-color: lightblue;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 16px;
+        display: grid;
+        place-content: center;
+      }
+      img {
+        max-width: 100%;
+      }
+      main {
+        max-width: 375px;
+        background-color: #fff;
+        padding: 1rem;
+        border-radius: 10px;
+      }
+
+      .top-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .top-container h1 {
+        font-size: 1.3rem;
+      }
+      .top-container h1 .notification-count {
+        background-color: blue;
+        color: #fff;
+        font-size: 1.2rem;
+        padding: 0.1rem 0.6rem;
+
+        border-radius: 5px;
+        margin-left: 0.6rem;
+      }
+      .top-container p {
+        font-size: 0.9rem;
+      }
+      .card {
+        height: 100px;
+        background-color: lightgrey;
+        padding: 0.3rem 1rem;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+      }
+      .card .card-img img {
+        width: 85%;
+        align-self: flex-start;
+        transform: translateY(-6px);
+      }
+      .card .card-body p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+      }
+      .card-body p span.dot {
+        width: 9px;
+        height: 9px;
+        display: inline-block;
+        background-color: red;
+        border-radius: 50%;
+        margin-left: 0.6rem;
+      }
+      .card-body p span.timestamp {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="top-container">
+        <h1>Notifications<span class="notification-count">3</span></h1>
+
+        <p>Mark all as read</p>
+      </div>
+      <div class="card">
+        <div class="card-img">
+          <img src="images/avatar-mark-webber.webp" alt="" />
+        </div>
+        <div class="card-body">
+          <p>
+            <span class="name">Mark Webber</span> reacted to your recent post
+            <span class="bolder-text">My first tournament today!</span
+            ><span class="dot"></span>
+            <span class="timestamp">1m ago</span>
+          </p>
+        </div>
+      </div>
+
+      <!--  Angela Gray followed you 5m ago Jacob
+      Thompson has joined your group Chess Club 1 day ago Rizky Hasanuddin sent
+      you a private message 5 days ago Hello, thanks for setting up the Chess
+      Club. I've been a member for a few weeks now and I'm already having lots
+      of fun and improving my game. Kimberly Smith commented on your picture 1
+      week ago Nathan Peterson reacted to your recent post 5 end-game strategies
+      to increase your win rate 2 weeks ago Anna Kim left the group Chess Club 2
+      weeks ago -->
+    </main>
+  </body>
+</html>
