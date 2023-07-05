@@ -40,7 +40,8 @@
         background-color: var(--Light-grayish-blue-2);
         color: var(--Dark-grayish-blue);
         font-family: "Plus Jakarta Sans", sans-serif;
-        font-size: 16px;
+        /* font-size: 16px; */
+        font-size: 12px;
         display: grid;
         place-content: center;
       }
@@ -54,7 +55,6 @@
         border-radius: 10px;
         box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
       }
-
       .top-container {
         display: flex;
         justify-content: space-between;
@@ -62,13 +62,14 @@
         margin-bottom: 0.6rem;
       }
       .top-container h1 {
-        font-size: 1.4rem;
+        font-size: 1.1rem;
+        margin-right: 3rem;
       }
       .top-container h1 .notification-count {
         display: inline-block;
         background-color: var(--Blue);
         color: var(--Very-light-grayish-blue);
-        font-size: 1.1rem;
+        font-size: 1rem;
         padding: 0.1rem 0.6rem;
         border-radius: 5px;
         margin-left: 0.6rem;
@@ -81,19 +82,22 @@
         font-size: 0.9rem;
       }
       .card {
+        display: flex;
+        align-items: center;
         background-color: var(--Very-light-grayish-blue);
         padding: 0.3rem 1rem;
         border-radius: 10px;
+        margin-bottom: 1rem;
+      }
+      .card img {
+        width: 36px;
+        margin-right: 1rem;
+      }
+      .card .card-body {
         display: flex;
         align-items: center;
       }
-      .card .card-img img {
-        width: 42px;
-        margin-right: 1rem;
-        transform: translateY(-9px);
-      }
       .card .card-body p {
-        max-width: 280px;
         line-height: 1.4;
       }
       .card-body p span.bolder-text {
@@ -104,16 +108,26 @@
         font-weight: 800;
       }
       .card-body p span.dot {
-        width: 9px;
-        height: 9px;
+        width: 7px;
+        height: 7px;
         display: inline-block;
         background-color: var(--Red);
         border-radius: 50%;
-        margin-left: 0.6rem;
+        margin-left: 0.3rem;
       }
       .card-body p span.timestamp {
         display: block;
         color: var(--Grayish-blue);
+      }
+      .card-body p .picture img {
+        /* margin-left: auto; */
+        /* width: 100%; */
+        /* width: 40px; */
+        /* height: 40px; */
+
+        /* display: block; */
+        /* position: absolute; */
+        /* transform: translateY(-10xp); */
       }
     </style>
   </head>
@@ -123,11 +137,11 @@
         <h1>Notifications<span class="notification-count">3</span></h1>
 
         <p>Mark all as read</p>
+        <!-- <img src="/images/image-chess.webp" alt="" /> -->
       </div>
-      <div class="card">
-        <div class="card-img">
-          <img src="images/avatar-mark-webber.webp" alt="" />
-        </div>
+      <!-- <div class="card">
+        <img src="images/avatar-mark-webber.webp" alt="" />
+
         <div class="card-body">
           <p>
             <span class="name">Mark Webber</span> reacted to your recent post
@@ -136,16 +150,133 @@
             <span class="timestamp">1m ago</span>
           </p>
         </div>
-      </div>
-
-      <!--  Angela Gray followed you 5m ago Jacob
-      Thompson has joined your group Chess Club 1 day ago Rizky Hasanuddin sent
-      you a private message 5 days ago Hello, thanks for setting up the Chess
-      Club. I've been a member for a few weeks now and I'm already having lots
-      of fun and improving my game. Kimberly Smith commented on your picture 1
-      week ago Nathan Peterson reacted to your recent post 5 end-game strategies
-      to increase your win rate 2 weeks ago Anna Kim left the group Chess Club 2
-      weeks ago -->
+      </div> -->
     </main>
+
+    <!--   
+    Hello, thanks for setting up the Chess
+    Club. I've been a member for a few weeks now and I'm already having lots
+    of fun and improving my game. 
+     -->
+    <script>
+      const notifications = [
+        {
+          name: "Mark Webber",
+          activity: "reacted to your recent post",
+          image: "images/avatar-mark-webber.webp",
+          post: "My first tournament today!",
+          timestamp: "1m",
+          haveRead: false,
+        },
+        {
+          name: "Angela Gray",
+          activity: "followed you",
+          image: "images/avatar-angela-gray.webp",
+          timestamp: "5m",
+          haveRead: false,
+        },
+        {
+          name: "Jacob Thompson",
+          activity: "has joined your group",
+          image: "images/avatar-jacob-thompson.webp",
+          group: "Chess Club",
+          timestamp: "1 day",
+          haveRead: false,
+        },
+        {
+          name: "Rizky Hasanuddin",
+          activity: "sent you a private message",
+          image: "images/avatar-rizky-hasanuddin.webp",
+          timestamp: "5 days",
+          haveRead: false,
+        },
+        {
+          name: "Kimberly Smith",
+          activity: "commented on your picture",
+          image: "images/avatar-kimberly-smith.webp",
+          picture: "images/image-chess.webp",
+          timestamp: "1 week",
+          haveRead: false,
+        },
+        {
+          name: "Nathan Peterson",
+          activity: "reacted to your recent post",
+          image: "images/avatar-nathan-peterson.webp",
+          post: "5 end-game strategies to increase you win rate",
+          timestamp: "2 weeks",
+          haveRead: false,
+        },
+        {
+          name: "Anna Kim",
+          activity: "left the group",
+          image: "images/avatar-anna-kim.webp",
+          group: "Chess Club",
+          timestamp: "2 weeks",
+          haveRead: false,
+        },
+      ];
+
+      // Get the main container element
+      const main = document.querySelector("main");
+
+      // Loop through the notification data and generate card containers dynamically
+      notifications.forEach((notification) => {
+        // Create the card container element
+        const card = document.createElement("div");
+        card.className = "card";
+
+        // Create the image element
+        const image = document.createElement("img");
+        image.src = notification.image;
+        card.appendChild(image);
+
+        // Create the card-body container element
+        const cardBody = document.createElement("div");
+        cardBody.className = "card-body";
+
+        // Create the p element
+        const text = document.createElement("p");
+        text.innerHTML = `
+            <span class="name">${notification.name}</span> ${
+          notification.activity
+        }
+            ${
+              notification.post
+                ? `<span class="bolder-text">${notification.post}</span>`
+                : ""
+            }
+            ${
+              notification.group
+                ? `<span class="bolder-text">${notification.group}</span>`
+                : ""
+            }
+            ${
+              notification.haveRead
+                ? ""
+                : `
+              <span class="dot"></span>
+              `
+            }
+            <span class="timestamp">${notification.timestamp} ago</span>
+     
+        `;
+        cardBody.appendChild(text);
+
+        const div = document.createElement("div");
+        div.innerHTML = `
+            ${
+              notification.picture
+                ? `<img src="${notification.picture}" />`
+                : ""
+            }
+        `;
+        cardBody.appendChild(div);
+
+        // Append the cardBody container to the card container element
+        card.appendChild(cardBody);
+        // Append the card container to the main container element
+        main.appendChild(card);
+      });
+    </script>
   </body>
 </html>
