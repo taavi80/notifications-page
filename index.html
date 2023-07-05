@@ -21,9 +21,24 @@
     />
 
     <style>
+      :root {
+        /* Primary */
+        --Red: hsl(1, 90%, 64%);
+        --Blue: hsl(219, 85%, 26%);
+        /* Neutral */
+        --White: hsl(0, 0%, 100%);
+        --Very-light-grayish-blue: hsl(210, 60%, 98%);
+        --Light-grayish-blue-1: hsl(211, 68%, 94%);
+        --Light-grayish-blue-2: hsl(205, 33%, 90%);
+        --Grayish-blue: hsl(219, 14%, 63%);
+        --Dark-grayish-blue: hsl(219, 12%, 42%);
+        --Very-dark-blue: hsl(224, 21%, 14%);
+      }
+
       body {
         min-height: 100vh;
-        background-color: lightblue;
+        background-color: var(--Light-grayish-blue-2);
+        color: var(--Dark-grayish-blue);
         font-family: "Plus Jakarta Sans", sans-serif;
         font-size: 16px;
         display: grid;
@@ -34,58 +49,71 @@
       }
       main {
         max-width: 375px;
-        background-color: #fff;
-        padding: 1rem;
+        background-color: var(--White);
+        padding: 1.6rem;
         border-radius: 10px;
+        box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
       }
 
       .top-container {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin-bottom: 0.6rem;
       }
       .top-container h1 {
-        font-size: 1.3rem;
+        font-size: 1.4rem;
       }
       .top-container h1 .notification-count {
-        background-color: blue;
-        color: #fff;
-        font-size: 1.2rem;
+        display: inline-block;
+        background-color: var(--Blue);
+        color: var(--Very-light-grayish-blue);
+        font-size: 1.1rem;
         padding: 0.1rem 0.6rem;
-
         border-radius: 5px;
         margin-left: 0.6rem;
+        transform: translateY(-3px);
+      }
+      .top-container h1 {
+        color: initial;
       }
       .top-container p {
         font-size: 0.9rem;
       }
       .card {
-        height: 100px;
-        background-color: lightgrey;
+        background-color: var(--Very-light-grayish-blue);
         padding: 0.3rem 1rem;
         border-radius: 10px;
         display: flex;
         align-items: center;
       }
       .card .card-img img {
-        width: 85%;
-        align-self: flex-start;
-        transform: translateY(-6px);
+        width: 42px;
+        margin-right: 1rem;
+        transform: translateY(-9px);
       }
       .card .card-body p {
-        font-size: 0.9rem;
+        max-width: 280px;
         line-height: 1.4;
+      }
+      .card-body p span.bolder-text {
+        font-weight: 800;
+      }
+      .card-body p span.name {
+        color: initial;
+        font-weight: 800;
       }
       .card-body p span.dot {
         width: 9px;
         height: 9px;
         display: inline-block;
-        background-color: red;
+        background-color: var(--Red);
         border-radius: 50%;
         margin-left: 0.6rem;
       }
       .card-body p span.timestamp {
         display: block;
+        color: var(--Grayish-blue);
       }
     </style>
   </head>
