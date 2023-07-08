@@ -1,0 +1,165 @@
+:root {
+  --Red: hsl(1, 90%, 64%);
+  --Blue: hsl(219, 85%, 26%);
+  --White: hsl(0, 0%, 100%);
+  --Very-light-grayish-blue: hsl(210, 60%, 98%);
+  --Light-grayish-blue-1: hsl(211, 68%, 94%);
+  --Light-grayish-blue-2: hsl(205, 33%, 90%);
+  --Grayish-blue: hsl(219, 14%, 63%);
+  --Dark-grayish-blue: hsl(219, 12%, 42%);
+  --Very-dark-blue: hsl(224, 21%, 14%);
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--Light-grayish-blue-2);
+  color: var(--Dark-grayish-blue);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 12px;
+  display: grid;
+  place-content: center;
+}
+img {
+  max-width: 100%;
+}
+
+main {
+  max-width: 375px;
+  background-color: var(--White);
+  padding: 1.6rem;
+  border-radius: 10px;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
+}
+
+.top-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.6rem;
+}
+.top-container h1 {
+  font-size: 1.1rem;
+  margin-right: 3rem;
+}
+.top-container h1 .notification-count {
+  display: inline-block;
+  background-color: var(--Blue);
+  color: var(--Very-light-grayish-blue);
+  font-size: 1rem;
+  padding: 0.1rem 0.6rem;
+  border-radius: 5px;
+  margin-left: 0.6rem;
+  transform: translateY(-3px);
+}
+.top-container h1 {
+  color: initial;
+}
+.top-container .mark-all {
+  font-size: 0.9rem;
+}
+.top-container .mark-all:hover {
+  cursor: pointer;
+  color: var(--Blue);
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  background-color: var(--Very-light-grayish-blue);
+  padding: 0.3rem 1rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+.card:hover {
+  cursor: pointer;
+}
+.card.clicked {
+  background-color: var(--White);
+}
+.card > img {
+  width: 36px;
+  align-self: flex-start;
+  margin-right: 1rem;
+  transform: translateY(13px);
+}
+
+.card .card-body {
+  display: grid;
+  grid-template-columns: 6fr 1fr;
+  align-items: center;
+}
+.card .card-body .message {
+  display: none;
+  border: 1px solid var(--Light-grayish-blue-2);
+  padding: 1rem;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+.card .card-body .message:hover {
+  background-color: var(--Light-grayish-blue-1);
+}
+.card .card-body p {
+  line-height: 1.4;
+}
+.card-body p span.bolder-text {
+  font-weight: 800;
+}
+.card-body p span.bolder-text.group {
+  color: var(--Blue);
+}
+.card-body p span.name {
+  color: initial;
+  font-weight: 800;
+}
+.card-body p span.name:hover,
+.card-body p span.bolder-text:hover {
+  color: var(--Blue);
+}
+.card-body p span.dot {
+  width: 7px;
+  height: 7px;
+  display: inline-block;
+  background-color: var(--Red);
+  border-radius: 50%;
+  margin-left: 0.3rem;
+}
+.card-body p span.added {
+  display: block;
+  color: var(--Grayish-blue);
+}
+.card-body .picture-container img {
+  border: 3px solid transparent;
+  transition: border-color 0.3s ease;
+  border-radius: 10px;
+}
+.card-body .picture-container img:hover {
+  border-color: var(--Grayish-blue);
+  border-radius: 10px;
+}
+
+@media (min-width: 1440px) {
+  body {
+    font-size: 16px;
+  }
+  main {
+    max-width: 900px;
+  }
+  .top-container h1 {
+    font-size: 1.6rem;
+  }
+  .top-container .mark-all {
+    font-size: 1rem;
+  }
+  .card > img {
+    width: 46px;
+  }
+  .top-container h1 .notification-count {
+    font-size: 1.3rem;
+  }
+  .card .card-body {
+    grid-template-columns: 15.5fr 1fr;
+  }
+  .card-body .picture-container {
+    width: 46px;
+  }
+}
